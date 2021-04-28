@@ -14,6 +14,10 @@ This is my note, my experience for architectural principles, patterns and soluti
 
 - Authority: each service owns its problems
 
+## Notes
+
+- The more threads does mean the faster
+
 ## Practises
 
 - Cache:
@@ -26,6 +30,21 @@ This is my note, my experience for architectural principles, patterns and soluti
 
 - Compress to reduce payload size
 
+- Single partition in Kafka:
+
+    - All write request are routed to Kafka
+
+    - Guaranteen ordering
+
+    - Process exect one
+
+    - When crash restore from last offset
+
+- All changes in cache are flushed to DB asynchronously
+
+- Non Blocking architecture using single thread business logic process
+
+- Ring Buffer data structure to communicate between processors
 
 ## Technologies
 
@@ -36,3 +55,7 @@ This is my note, my experience for architectural principles, patterns and soluti
 - Compress:
     - Single: gzip
     - Multiple: Snappy
+
+- LMax/Ring Buffer
+
+- ZeroMQ: return async message
